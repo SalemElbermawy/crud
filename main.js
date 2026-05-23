@@ -284,6 +284,9 @@ let cat = document.getElementById("category")
 
 let create = document.getElementById("submit")
 
+let mood="create";
+let temp;
+
 // console.log(price,taxes,ads,discount,total,count,cat,create)
 
 // total function
@@ -324,6 +327,8 @@ create.onclick=function(){
 
     }
 
+    if (mood=="create"){
+
     if (newPro.count > 1){
 
         for (let i = 0 ; i < newPro.count; i++ ){
@@ -334,6 +339,14 @@ create.onclick=function(){
         dataPro.push(newPro)
     }
 
+    }else{
+        dataPro[temp]=newPro;
+        mood="create";
+        count.style.display="block";
+        create.innerHTML="Create"
+    }
+
+   
     
 
     localStorage.shopList=JSON.stringify(dataPro)
@@ -375,7 +388,7 @@ if (localStorage.shopList != null){
                     <td>${dataPro[i].discount}</td>
                     <td>${dataPro.total}</td>
                     <td>${dataPro[i].category}</td>
-                    <td><button id="update" >update</button></td>
+                    <td><button id="update" onclick="updateData(${i})">update</button></td>
                     <td><button id="delete" onclick="deleteItem(${i})">delete</button></td>
         </tr>
         `
@@ -408,5 +421,25 @@ function allDelete(){
     localStorage.shopList=dataPro;
     showData()
 }
+
+function updateData(i){
+    title.value=dataPro[i].title;
+    discount.value=dataPro[i].discount;
+    ads.value = dataPro[i].ads;
+    taxes.value = dataPro[i].taxes;
+    price.value = dataPro[i].price;
+    category.value = dataPro[i].category;
+    count.style.display="none";
+    total_fun();
+    create.innerHTML="Update";
+    mood="Update";
+    temp=i;
+    scroll({
+        top:0,
+        behavior:"smooth",
+    })
+}
+
+
 
 showData()
