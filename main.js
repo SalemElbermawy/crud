@@ -299,9 +299,10 @@ function total_fun(){
     }
 }
 
+
 // create product
 let dataPro ;
-if (localStorage.shopList.length > 0){
+if (localStorage.shopList != null && localStorage.shopList.length != 0){
 
  dataPro =  JSON.parse(localStorage.shopList)
 }else{
@@ -323,12 +324,89 @@ create.onclick=function(){
 
     }
 
+    if (newPro.count > 1){
 
-    dataPro.push(newPro)
+        for (let i = 0 ; i < newPro.count; i++ ){
+            dataPro.push(newPro)
+        }
+
+    }else{
+        dataPro.push(newPro)
+    }
+
+    
 
     localStorage.shopList=JSON.stringify(dataPro)
 
     console.log(JSON.parse(localStorage.shopList))
 
+    clearData()
+    showData()
     
 }
+
+function clearData(){
+    title.value = "";
+    discount.value ="";
+    price.value="";
+    taxes.value = "";
+    category.value="";
+    count.value="";
+    ads.value="";
+    total.innerHTML=""
+    total.style.background="rgb(86, 15, 15)"
+}
+
+
+function showData(){
+
+    let table = "";
+
+if (localStorage.shopList != null){
+
+    for(let i =0 ; i < dataPro.length;i++){
+        table += `
+        <tr>
+                    <td>${i}</td>
+                    <td>${dataPro[i].title}</td>
+                    <td>${dataPro[i].price}</td>
+                    <td>${dataPro[i].taxes}</td>
+                    <td>${dataPro[i].ads}</td>
+                    <td>${dataPro[i].discount}</td>
+                    <td>${dataPro.total}</td>
+                    <td>${dataPro[i].category}</td>
+                    <td><button id="update" >update</button></td>
+                    <td><button id="delete" onclick="deleteItem(${i})">delete</button></td>
+        </tr>
+        `
+    }}
+
+    document.getElementById("tableContent").innerHTML=table;
+    let deleteDiv = document.getElementById("deleteAll");
+    if (dataPro.length > 0){
+        deleteDiv.innerHTML=`<button id='all' onclick="allDelete()" >Delet All (${dataPro.length})</button> `
+    }else{
+        deleteDiv.innerHTML=""
+    }
+}
+
+
+function deleteItem(n){
+
+    dataPro.splice(n,1);
+
+    localStorage.shopList=dataPro;
+
+    showData()
+
+
+}
+
+
+function allDelete(){
+    dataPro.splice(0,dataPro.length)
+    localStorage.shopList=dataPro;
+    showData()
+}
+
+showData()
