@@ -272,7 +272,7 @@
 //     document.body.style.background=localStorage.cl_color
 // }
 
-
+let title = document.getElementById("title")
 let price = document.getElementById("price")
 let taxes = document.getElementById("taxes")
 let ads= document.getElementById("ads")
@@ -297,4 +297,38 @@ function total_fun(){
     else{
         total.style.background="rgb(86, 15, 15)"
     }
+}
+
+// create product
+let dataPro ;
+if (localStorage.shopList.length > 0){
+
+ dataPro =  JSON.parse(localStorage.shopList)
+}else{
+     dataPro=[]
+}
+
+create.onclick=function(){
+
+    let newPro = {
+        title:title.value,
+        price:price.value,
+        taxes:taxes.value,
+        ads:ads.value,
+        discount:discount.value,
+        total:total.innerHTML,
+        count:count.value,
+        category:category.value
+        
+
+    }
+
+
+    dataPro.push(newPro)
+
+    localStorage.shopList=JSON.stringify(dataPro)
+
+    console.log(JSON.parse(localStorage.shopList))
+
+    
 }
