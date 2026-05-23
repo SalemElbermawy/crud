@@ -273,3 +273,28 @@
 // }
 
 
+let price = document.getElementById("price")
+let taxes = document.getElementById("taxes")
+let ads= document.getElementById("ads")
+let discount = document.getElementById("discount")
+
+let total = document.getElementById("total")
+let count = document.getElementById("count")
+let cat = document.getElementById("category")
+
+let create = document.getElementById("submit")
+
+// console.log(price,taxes,ads,discount,total,count,cat,create)
+
+// total function
+
+function total_fun(){
+     if (price.value != ""){
+    total_price = +price.value + +taxes.value + +ads.value - +discount.value;
+    total.innerHTML=total_price
+    console.log("done")
+    total.style.background="#040"}
+    else{
+        total.style.background="rgb(86, 15, 15)"
+    }
+}

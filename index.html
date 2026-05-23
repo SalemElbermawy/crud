@@ -117,13 +117,13 @@
 
             <div class="price">
 
-                <input type="number"  id="price" placeholder="ID">
+                <input onkeyup="total_fun()"  type="number"  id="price" placeholder="Price">
 
-                <input type="number"  id="taxes" placeholder="Taxes">
+                <input onkeyup="total_fun()" type="number"  id="taxes" placeholder="Taxes">
 
-                <input type="number" placeholder="Ads" id="ads">
+                <input onkeyup="total_fun()" type="number" placeholder="Ads" id="ads">
 
-                <input type="number"  id="discount" placeholder="Discount">
+                <input onkeyup="total_fun()" type="number"  id="discount" placeholder="Discount">
 
                 <small id="total">
                     30
@@ -140,7 +140,85 @@
 
         <div class="outputs">
 
+            <div class="searchBlock">
+                <input type="text" placeholder="Search" id="search">
 
+                <div class="btnSearch">
+                    <button id="searchTitle">Search By Title</button>
+                    <button id="searchCategory">Search By Category</button>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+
+                    <th>id</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>taxes</th>
+                    <th>ads</th>
+                    <th>discount</th>
+                    <th>category</th>
+                    <th>total</th>
+                    <th>update</th>
+                    <th>delete</th>
+
+                </tr>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                    <td>pdone</td>
+                    <td>4000</td>
+                    <td>21</td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>40000</td>
+                    <td>pdone</td>
+                    <td><button id="update">update</button></td>
+                    <td><button id="delete">delete</button></td>
+                    </tr>
+
+                    <tr>
+                        <td>001</td>
+                    <td>pdone</td>
+                    <td>4000</td>
+                    <td>21</td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>32231</td>
+                    <td>pdone</td>
+                    <td><button id="update">update</button></td>
+                    <td><button id="delete">delete</button></td>
+                    </tr>
+
+                    <tr>
+                        <td>001</td>
+                    <td>pdone</td>
+                    <td>4000</td>
+                    <td>21</td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>3214</td>
+                    <td>pdone</td>
+                    <td><button id="update">update</button></td>
+                    <td><button id="delete">delete</button></td>
+                    </tr>
+
+                    <tr>
+                        <td>001</td>
+                    <td>pdone</td>
+                    <td>4000</td>
+                    <td>21</td>
+                    <td>200</td>
+                    <td>400</td>
+                    <td>142431</td>
+                    <td>pdone</td>
+                    <td><button id="update">update</button></td>
+                    <td><button id="delete">delete</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
 
         </div>
 

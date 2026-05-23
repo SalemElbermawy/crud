@@ -143,7 +143,7 @@ button{
     width: 100%;
     height: 30px;
     border-radius: 20px;
-    margin-top: 10px;
+    margin: 10px 0;
     background-color: rgba(245, 245, 220, 0.586);
     border: none;
     cursor: pointer;
@@ -157,3 +157,24 @@ button:hover{
 
 /* outputs */
 
+.btnSearch{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnSearch button{
+    width: 45%;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+}
+
+table button{
+    width: 90%;
+}
+
+table th{
+    text-transform: uppercase;
+}
