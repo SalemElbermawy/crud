@@ -287,6 +287,8 @@ let create = document.getElementById("submit")
 let mood="create";
 let temp;
 
+let searchMood = "title"
+
 // console.log(price,taxes,ads,discount,total,count,cat,create)
 
 // total function
@@ -386,8 +388,8 @@ if (localStorage.shopList != null){
                     <td>${dataPro[i].taxes}</td>
                     <td>${dataPro[i].ads}</td>
                     <td>${dataPro[i].discount}</td>
-                    <td>${dataPro.total}</td>
                     <td>${dataPro[i].category}</td>
+                    <td>${dataPro[i].total}</td>
                     <td><button id="update" onclick="updateData(${i})">update</button></td>
                     <td><button id="delete" onclick="deleteItem(${i})">delete</button></td>
         </tr>
@@ -440,6 +442,74 @@ function updateData(i){
     })
 }
 
+function getSearchMood(id){
+    search=document.getElementById("search")
+    if (id == "searchTitle"){
+        searchMood="title"
+        search.placeholder="Search By Title"
+
+    }else{
+        searchMood="category";
+        search.placeholder="Search By Category"
+    }
+
+    search.focus();
+    search.value="";
+    showData()
+}
+
+function searchData(s_value){
+
+    let table = ""
+     if (searchMood == "title"){
+
+        for (let i = 0; i < dataPro.length; i++){
+            if (dataPro[i].title.toLowerCase().includes(s_value.toLowerCase())){
+
+                table += `
+        <tr>
+                    <td>${i}</td>
+                    <td>${dataPro[i].title}</td>
+                    <td>${dataPro[i].price}</td>
+                    <td>${dataPro[i].taxes}</td>
+                    <td>${dataPro[i].ads}</td>
+                    <td>${dataPro[i].discount}</td>
+                    <td>${dataPro[i].category}</td>
+                    <td>${dataPro[i].total}</td>
+                    <td><button id="update" onclick="updateData(${i})">update</button></td>
+                    <td><button id="delete" onclick="deleteItem(${i})">delete</button></td>
+        </tr>
+        `
+
+            }
+        }
+
+        
+     }else{
+
+        for (let i = 0; i < dataPro.length; i++){
+            if (dataPro[i].category.toLowerCase().includes(s_value.toLowerCase())){
+
+                table += `
+        <tr>
+                    <td>${i}</td>
+                    <td>${dataPro[i].title}</td>
+                    <td>${dataPro[i].price}</td>
+                    <td>${dataPro[i].taxes}</td>
+                    <td>${dataPro[i].ads}</td>
+                    <td>${dataPro[i].discount}</td>
+                    <td>${dataPro.total}</td>
+                    <td>${dataPro[i].category}</td>
+                    <td><button id="update" onclick="updateData(${i})">update</button></td>
+                    <td><button id="delete" onclick="deleteItem(${i})">delete</button></td>
+        </tr>
+        `}
+
+
+     }}
+
+     document.getElementById("tableContent").innerHTML=table
+}
 
 
 showData()
