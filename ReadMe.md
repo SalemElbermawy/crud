@@ -1,15 +1,33 @@
 # CRUDS
 
-- in this project you can Create Update Read Delete and Search 
+- in this project you can Create Update Read Delete and Search for the items which you want asi the photo
+<img width="1705" height="249" alt="image" src="https://github.com/user-attachments/assets/604fa189-9db5-4b40-999a-baaf64d1cf65" />
 - And everything will be saved because this project is support local data storage which saved the data untill you delete it by your self
+- if you closed the website and back open it everythin will be saved it dependes on the locla storage
 
-- you have two feature to search according to them title and category 
+- you have two feature to search according to them title and category
+- this means by the title like "Iphone 17 Pro" of the items or category like "phone" or "tablet"
 
-- the project is very simple to use it and is very simple and responsive
+
+<img width="1792" height="476" alt="image" src="https://github.com/user-attachments/assets/d6ef2bfb-2d2f-4cf6-9389-40adcf45dbae" />
+
+<img width="1857" height="577" alt="image" src="https://github.com/user-attachments/assets/51e0d8c6-e74d-496a-9762-4a39a3f1e28a" />
 
 
-![alt text](image.png)
+- there is feature of count for example if you have 10 items from spacific product you can write the item once and determine the count of it and will write all of them
 
+  <img width="1811" height="751" alt="image" src="https://github.com/user-attachments/assets/877002b6-d049-4499-8edf-36ff837c9f4c" />
+
+
+- finally you have 2 buttons one for deleting and another to update the item and if you want to delete all items you have button for that too
+
+  <img width="904" height="366" alt="image" src="https://github.com/user-attachments/assets/84331c6a-db6f-4979-adfc-d9f308d32381" />
+
+
+
+
+
+- ![alt text](image.png)
 ![alt text](image-1.png)
 
 ![alt text](image-2.png)
